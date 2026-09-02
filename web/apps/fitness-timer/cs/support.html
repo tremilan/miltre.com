@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="cs">
+ <head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Podpora, Fitness Timer</title>
+ <meta
+ name="description"
+ content="Podpora a kontakt pro Fitness Timer by Miltre na Macu, iPhonu, Apple Watch, Androidu a Windows."
+ />
+ <link rel="icon" href="../assets/icon-512.png" type="image/png" />
+ <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="../../../styles.css?v=4" />
+ </head>
+ <body>
+ <header class="site-header">
+ <div class="wrap site-header__inner">
+ <a class="brand" href="../../../cs/index.html">
+ <img class="brand__logo" src="../assets/app-logo.png" width="40" height="40" alt="" />
+ <span>
+ <span class="brand__name">Fitness Timer</span>
+ <span class="brand__by">by Miltre.com</span>
+ </span>
+ </a>
+ <nav class="nav" aria-label="Hlavní navigace">
+ <div class="nav__menu">
+
+ <a class="nav__section nav__section--neutral" href="../../../cs/index.html">Miltre</a>
+ <a class="nav__section nav__section--blue" href="../../../cs/apps/index.html">Aplikace</a>
+ <a href="./index.html">Fitness Timer</a>
+ <a class="nav__section nav__section--slate" href="./privacy.html">Soukromí</a>
+ <a href="./support.html" aria-current="page">Podpora</a>
+ </div>
+ <span class="lang" aria-label="Jazyk">
+ <a href="../support.html">EN</a>
+ <a href="./support.html" aria-current="page">CS</a>
+ </span>
+ </nav>
+ </div>
+ </header>
+
+ <main class="page">
+ <div class="wrap">
+ <h1 class="page__title">Podpora</h1>
+ <p class="page__meta">
+ Pomoc pro Fitness Timer na Macu, iPhonu, Apple Watch, Androidu a Windows.
+ </p>
+
+ <article class="prose">
+ <h2>Kontakt</h2>
+ <p>
+ Napište na
+ <a class="todo" href="mailto:contact@miltre.com">contact@miltre.com</a>
+ a uveďte platformu (Mac / iPhone / Watch / Android / Windows), verzi aplikace
+ pokud ji znáte, a krátký popis problému.
+ </p>
+
+ <h2>Časté tipy</h2>
+ <ul>
+ <li>
+ <strong>iPhone + Apple Watch:</strong> nejdřív otevřete Fitness Timer
+ v telefonu, pak na hodinkách. Pro Saved lessons na hodinkách otevřete Saved
+ lessons v telefonu, když běží obě aplikace.
+ </li>
+ <li>
+ <strong>Mac:</strong> použijte desktopovou aplikaci z instalačního balíčku.
+ Celá obrazovka pomáhá při promítání do sálu.
+ </li>
+ <li>
+ <strong>Android / Windows:</strong> držte aplikaci aktuální z obchodu nebo
+ svého kanálu; úložiště aplikace mažte jen tehdy, když chcete záměrně smazat
+ uložené lekce.
+ </li>
+ </ul>
+
+ <h2>Soukromí</h2>
+ <p>
+ Data tréninků zůstávají při běžném použití na zařízení. Viz
+ <a class="nav__section nav__section--slate" href="./privacy.html">Zásady soukromí</a>.
+ </p>
+
+ <p class="note note--todo">
+ DOPLNIT / ZKONTROLOVAT: nahraďte
+ <code class="todo">contact@miltre.com</code>
+ finální schránkou. Tuto Support URL obchody obvykle vyžadují spolu
+ s&nbsp;Privacy, po nasazení použijte veřejnou HTTPS adresu.
+ </p>
+ </article>
+ </div>
+ </main>
+
+ <footer class="site-footer">
+ <div class="wrap site-footer__inner">
+ <span>© <span id="y"></span> Miltre · Fitness Timer</span>
+ <span>
+ <a href="./privacy.html">Soukromí</a>
+ ·
+ <a href="./support.html">Podpora</a>
+ ·
+ <a href="../../../cs/privacy.html">Soukromí webu</a>
+ </span>
+ </div>
+ </footer>
+ <script>
+ document.getElementById("y").textContent = String(new Date().getFullYear());
+ </script>
+ </body>
+</html>

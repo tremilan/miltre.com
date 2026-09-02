@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Fitness Timer by Miltre</title>
+ <meta
+ name="description"
+ content="Fitness Timer, simple interval training for instructors. Available for Mac, iPhone, Apple Watch, Android, and Windows."
+ />
+ <link rel="icon" href="./assets/icon-512.png" type="image/png" />
+ <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="../../styles.css?v=4" />
+ </head>
+ <body>
+ <header class="site-header">
+ <div class="wrap site-header__inner">
+ <a class="brand" href="../../index.html">
+ <img class="brand__logo" src="./assets/app-logo.png" width="40" height="40" alt="" />
+ <span>
+ <span class="brand__name">Fitness Timer</span>
+ <span class="brand__by">by Miltre.com</span>
+ </span>
+ </a>
+ <nav class="nav" aria-label="Primary">
+ <div class="nav__menu">
+
+ <a class="nav__section nav__section--neutral" href="../../index.html">Miltre</a>
+ <a class="nav__section nav__section--blue" href="../index.html">Apps</a>
+ <a href="./index.html" aria-current="page">Fitness Timer</a>
+ <a class="nav__section nav__section--slate" href="./privacy.html">Privacy</a>
+ <a href="./support.html">Support</a>
+ </div>
+ <span class="lang" aria-label="Language">
+ <a href="./index.html" aria-current="page">EN</a>
+ <a href="./cs/index.html">CS</a>
+ </span>
+ </nav>
+ </div>
+ </header>
+
+ <main>
+ <section class="hero">
+ <div class="wrap hero__grid">
+ <div>
+ <h1 class="hero__brand">Fitness Timer</h1>
+ <p class="hero__lead">
+ Simple mode for instructors. Build rounds, save lessons, and run clean
+ work / pause timing on the screen that suits your class.
+ </p>
+ <div class="hero__actions">
+ <a class="btn btn--primary" href="./support.html">Get support</a>
+ <a class="btn btn--ghost" href="./privacy.html">Privacy policy</a>
+ </div>
+ </div>
+ <div class="hero__visual" aria-hidden="true">
+ <img src="./assets/app-logo.png" width="320" height="320" alt="" />
+ </div>
+ </div>
+ </section>
+
+ <section class="section">
+ <div class="wrap">
+ <h2 class="section__title">One product, every platform</h2>
+ <p class="section__lead">
+ The same instructor-first timer across Mac, iPhone with Apple Watch,
+ Android, and Windows.
+ <span class="todo"
+ >TODO: store listings must link here for privacy and support (HTTPS URL).</span
+ >
+ </p>
+ <div class="platforms">
+ <div class="platform">
+ <strong>Mac</strong>
+ <span>Desktop app for studio screens</span>
+ </div>
+ <div class="platform">
+ <strong>iPhone + Watch</strong>
+ <span>Phone setup, watch mirror &amp; remote</span>
+ </div>
+ <div class="platform">
+ <strong>Android</strong>
+ <span>Phone and tablet classes</span>
+ </div>
+ <div class="platform">
+ <strong>Windows</strong>
+ <span>Web / PWA for Windows rooms</span>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
+
+ <footer class="site-footer">
+ <div class="wrap site-footer__inner">
+ <span>© <span id="y"></span> Miltre · Fitness Timer</span>
+ <span>
+ <a href="./privacy.html">Privacy</a>
+ ·
+ <a href="./support.html">Support</a>
+ ·
+ <a href="../../privacy.html">Site privacy</a>
+ </span>
+ </div>
+ </footer>
+ <script>
+ document.getElementById("y").textContent = String(new Date().getFullYear());
+ </script>
+ </body>
+</html>
