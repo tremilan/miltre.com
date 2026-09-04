@@ -14,7 +14,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="../../styles.css?v=4" />
+ <link rel="stylesheet" href="../../styles.css?v=6" />
  </head>
  <body>
  <header class="site-header">
@@ -74,14 +74,38 @@
  >
  </p>
  <div class="platforms">
- <div class="platform">
+ <button
+ class="platform"
+ type="button"
+ data-gallery="mac"
+ data-gallery-title="Mac"
+ aria-haspopup="dialog"
+ >
  <strong>Mac</strong>
  <span>Desktop app for studio screens</span>
+ <div class="platform__thumbs" aria-hidden="true">
+ <img src="./assets/screens/mac/01.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="./assets/screens/mac/02-saved-lessons.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="./assets/screens/mac/06-working.png" alt="" width="160" height="120" loading="lazy" />
  </div>
- <div class="platform">
+ <span class="platform__hint">View screenshots</span>
+ </button>
+ <button
+ class="platform"
+ type="button"
+ data-gallery="iphone"
+ data-gallery-title="iPhone + Watch"
+ aria-haspopup="dialog"
+ >
  <strong>iPhone + Watch</strong>
  <span>Phone setup, watch mirror &amp; remote</span>
+ <div class="platform__thumbs" aria-hidden="true">
+ <img src="./assets/screens/iphone/01-page-1.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="./assets/screens/iphone/06-p-fs-training.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="./assets/screens/iphone/w-work-running.png" alt="" width="160" height="120" loading="lazy" />
  </div>
+ <span class="platform__hint">View screenshots</span>
+ </button>
  <div class="platform">
  <strong>Android</strong>
  <span>Phone and tablet classes</span>
@@ -94,6 +118,42 @@
  </div>
  </section>
  </main>
+
+ <div
+ class="gallery-lightbox"
+ id="gallery-lightbox"
+ hidden
+ aria-hidden="true"
+ role="dialog"
+ aria-modal="true"
+ aria-labelledby="gallery-lightbox-title"
+ >
+ <button class="gallery-lightbox__backdrop" type="button" data-gallery-close aria-label="Close gallery"></button>
+ <div class="gallery-lightbox__panel">
+ <div class="gallery-lightbox__top">
+ <h2 class="gallery-lightbox__title" id="gallery-lightbox-title">Screenshots</h2>
+ <button class="gallery-lightbox__close" type="button" data-gallery-close>Close</button>
+ </div>
+ <div class="gallery-lightbox__grid" id="gallery-lightbox-grid"></div>
+ </div>
+ <div
+ class="gallery-zoom"
+ id="gallery-zoom"
+ hidden
+ aria-hidden="true"
+ >
+ <button class="gallery-zoom__backdrop" type="button" data-zoom-close aria-label="Close zoom"></button>
+ <div class="gallery-zoom__top">
+ <p class="gallery-zoom__counter" id="gallery-zoom-counter">1 / 1</p>
+ <button class="gallery-zoom__close" type="button" data-zoom-close>Back</button>
+ </div>
+ <button class="gallery-zoom__nav" type="button" data-zoom-prev aria-label="Previous image">‹</button>
+ <div class="gallery-zoom__figure">
+ <img id="gallery-zoom-img" src="" alt="" />
+ </div>
+ <button class="gallery-zoom__nav" type="button" data-zoom-next aria-label="Next image">›</button>
+ </div>
+ </div>
 
  <footer class="site-footer">
  <div class="wrap site-footer__inner">
@@ -109,6 +169,159 @@
  </footer>
  <script>
  document.getElementById("y").textContent = String(new Date().getFullYear());
+
+ const gallerySets = {
+ mac: [
+ "./assets/screens/mac/01.png",
+ "./assets/screens/mac/02-saved-lessons.png",
+ "./assets/screens/mac/03-fs-saved-lessons.png",
+ "./assets/screens/mac/04-training-details.png",
+ "./assets/screens/mac/05-fs-training-details.png",
+ "./assets/screens/mac/06-working.png",
+ "./assets/screens/mac/07-fs-working.png",
+ "./assets/screens/mac/08-fs-pause.png",
+ "./assets/screens/mac/09-pause.png",
+ "./assets/screens/mac/10-fs-exercise-datab.png",
+ "./assets/screens/mac/11-fs-exercise-datab-filters.png",
+ ],
+ iphone: [
+ "./assets/screens/iphone/01-page-1.png",
+ "./assets/screens/iphone/02-fs-ls-exercise-database.png",
+ "./assets/screens/iphone/03-fs-p-saved-lessons.png",
+ "./assets/screens/iphone/04-p-training-detail-top.png",
+ "./assets/screens/iphone/05-p-training-details-cvik.png",
+ "./assets/screens/iphone/06-p-fs-training.png",
+ "./assets/screens/iphone/07-ls-fs-training.png",
+ "./assets/screens/iphone/08-p-pause.png",
+ "./assets/screens/iphone/09-ls-fs-pause.png",
+ "./assets/screens/iphone/10-saving-lessons.png",
+ "./assets/screens/iphone/w-1-saved-lessons-watch.png",
+ "./assets/screens/iphone/w-2-start-ready.png",
+ "./assets/screens/iphone/w-work-running.png",
+ "./assets/screens/iphone/w-pause-running.png",
+ "./assets/screens/iphone/w-pause-resume.png",
+ ],
+ };
+
+ const lightbox = document.getElementById("gallery-lightbox");
+ const grid = document.getElementById("gallery-lightbox-grid");
+ const titleEl = document.getElementById("gallery-lightbox-title");
+ const zoom = document.getElementById("gallery-zoom");
+ const zoomImg = document.getElementById("gallery-zoom-img");
+ const zoomCounter = document.getElementById("gallery-zoom-counter");
+ const zoomPrev = lightbox.querySelector("[data-zoom-prev]");
+ const zoomNext = lightbox.querySelector("[data-zoom-next]");
+ let lastFocus = null;
+ let currentImages = [];
+ let zoomIndex = 0;
+
+ const closeZoom = () => {
+ zoom.classList.remove("is-open");
+ zoom.hidden = true;
+ zoom.setAttribute("aria-hidden", "true");
+ zoomImg.removeAttribute("src");
+ };
+
+ const renderZoom = () => {
+ if (!currentImages.length) return;
+ zoomImg.src = currentImages[zoomIndex];
+ zoomCounter.textContent = `${zoomIndex + 1} / ${currentImages.length}`;
+ zoomPrev.disabled = currentImages.length < 2;
+ zoomNext.disabled = currentImages.length < 2;
+ };
+
+ const openZoom = (index) => {
+ if (!currentImages.length) return;
+ zoomIndex = Math.max(0, Math.min(index, currentImages.length - 1));
+ renderZoom();
+ zoom.hidden = false;
+ zoom.setAttribute("aria-hidden", "false");
+ requestAnimationFrame(() => zoom.classList.add("is-open"));
+ lightbox.querySelector(".gallery-zoom__close")?.focus();
+ };
+
+ const stepZoom = (delta) => {
+ if (currentImages.length < 2) return;
+ zoomIndex = (zoomIndex + delta + currentImages.length) % currentImages.length;
+ renderZoom();
+ };
+
+ const closeGallery = () => {
+ closeZoom();
+ lightbox.classList.remove("is-open");
+ lightbox.hidden = true;
+ lightbox.setAttribute("aria-hidden", "true");
+ document.body.classList.remove("gallery-open");
+ grid.innerHTML = "";
+ currentImages = [];
+ if (lastFocus) lastFocus.focus();
+ };
+
+ const openGallery = (key, title, trigger) => {
+ const images = gallerySets[key] || [];
+ if (!images.length) return;
+ lastFocus = trigger || document.activeElement;
+ currentImages = images.slice();
+ titleEl.textContent = title || "Screenshots";
+ grid.innerHTML = images
+ .map(
+ (src, index) =>
+ `<button type="button" class="gallery-lightbox__thumb" data-zoom-index="${index}" aria-label="Enlarge image ${index + 1}">
+ <img src="${src}" alt="" loading="lazy" decoding="async" />
+ </button>`
+ )
+ .join("");
+ lightbox.hidden = false;
+ lightbox.setAttribute("aria-hidden", "false");
+ document.body.classList.add("gallery-open");
+ requestAnimationFrame(() => lightbox.classList.add("is-open"));
+ lightbox.querySelector(".gallery-lightbox__close")?.focus();
+ };
+
+ document.querySelectorAll("[data-gallery]").forEach((btn) => {
+ btn.addEventListener("click", () => {
+ openGallery(btn.dataset.gallery, btn.dataset.galleryTitle, btn);
+ });
+ });
+
+ grid.addEventListener("click", (e) => {
+ const thumb = e.target.closest("[data-zoom-index]");
+ if (!thumb || !lightbox.contains(thumb)) return;
+ openZoom(Number(thumb.dataset.zoomIndex));
+ });
+
+ lightbox.querySelectorAll("[data-gallery-close]").forEach((btn) => {
+ btn.addEventListener("click", closeGallery);
+ });
+
+ lightbox.querySelectorAll("[data-zoom-close]").forEach((btn) => {
+ btn.addEventListener("click", closeZoom);
+ });
+
+ zoomPrev.addEventListener("click", () => stepZoom(-1));
+ zoomNext.addEventListener("click", () => stepZoom(1));
+
+ document.addEventListener("keydown", (e) => {
+ if (!lightbox.classList.contains("is-open")) return;
+ if (zoom.classList.contains("is-open")) {
+ if (e.key === "Escape") {
+ e.preventDefault();
+ closeZoom();
+ return;
+ }
+ if (e.key === "ArrowLeft") {
+ e.preventDefault();
+ stepZoom(-1);
+ return;
+ }
+ if (e.key === "ArrowRight") {
+ e.preventDefault();
+ stepZoom(1);
+ }
+ return;
+ }
+ if (e.key === "Escape") closeGallery();
+ });
  </script>
  </body>
 </html>
