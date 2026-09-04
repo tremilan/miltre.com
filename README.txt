@@ -5,9 +5,13 @@ Cesta:
   /Users/notebook/Projects/plocha/miltre.com
 
 Sekce
-  web/                 veřejný web (HTML/CSS) → miltre.com
-  E-commerce na web/   podklady e-commerce
-  postupyWebovky/      interní postupy / .pages
+  web/                 veřejný web (HTML/CSS) → miltre.com / GitHub Pages
+  E-commerce na web/   podklady e-commerce (NE nasazuje se na Pages)
+  postupyWebovky/      interní postupy (NE nasazuje se na Pages)
+
+GitHub Pages
+  Nasazuje se jen složka web/ přes Action `.github/workflows/pages.yml`.
+  V Settings → Pages nastav Source: GitHub Actions (ne branch / root).
 
 web — 4 oblasti
   apps/           Aplikace (Fitness Timer, …)
