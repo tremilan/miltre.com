@@ -6,7 +6,7 @@
  <title>Fitness Timer by Miltre</title>
  <meta
  name="description"
- content="Fitness Timer, nine preset workouts and your own lessons. A clear timer, settings from colors to sound, and your exercise database."
+ content="A clear app for organizing and running training lessons. Build a workout your way, then edit and save lessons, exercises, times, and rests."
  />
  <link rel="icon" href="./assets/icon-512.png" type="image/png" />
  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -14,7 +14,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="../../styles.css?v=8" />
+ <link rel="stylesheet" href="../../styles.css?v=10" />
  </head>
  <body>
  <header class="site-header">
@@ -49,8 +49,8 @@
  <div>
  <h1 class="hero__brand">Fitness Timer</h1>
  <p class="hero__lead">
- Nine preset workouts and the ones you build yourself. A clear timer,
- settings from colors to sound, and your own exercise database.
+ A clear app for organizing and running training lessons. Build a workout
+ your way, then edit and save lessons, exercises, times, and rests.
  </p>
  <div class="hero__actions">
  <a class="btn btn--primary" href="./support.html">Get support</a>
@@ -65,23 +65,36 @@
 
  <section class="section">
  <div class="wrap">
- <h2 class="section__title">One product, every platform</h2>
+ <div class="section__block">
+ <h2 class="section__title">Version 2</h2>
  <p class="section__lead">
- The same instructor timer on Mac, iPhone with Apple Watch, Android, and
- Windows. The Mac app is
+ The new Fitness Timer is on the Mac for now.
  <a href="https://apps.apple.com/app/id6809208948">Miltre Fitness Timer</a>
- on the Mac App Store.
+ is on the Mac App Store. Use it for a group workout, training at home, or any
+ timed session.
  </p>
+ <ul class="feature-list">
+ <li>Run the timer full screen or in a small window.</li>
+ <li>Colors show the phase: get ready, work, and rest. You set the colors yourself.</li>
+ <li>The exercise name and your note stay on the timer.</li>
+ <li>Voice and the sound signal turn off separately. Voice can read the exercise name and the note. The sound can warn you before an interval ends.</li>
+ <li>Set a pause before the lesson starts, or turn that pause off.</li>
+ <li>Start from HIIT, Tabata, circuit, EMOM, AMRAP, boxing, interval, or a stopwatch, or build the lesson yourself.</li>
+ <li>Chain several formats into one compound lesson.</li>
+ <li>Keep your own exercise database, with a body part and a note, and reuse them.</li>
+ <li>Save lessons on the Mac, copy a link, or load a lesson from a file. No account.</li>
+ <li>The app runs in 30&nbsp;languages.</li>
+ </ul>
  <div class="platforms">
  <button
  class="platform"
  type="button"
  data-gallery="mac"
- data-gallery-title="Mac"
+ data-gallery-title="Mac · version 2"
  aria-haspopup="dialog"
  >
  <strong>Mac</strong>
- <span>Miltre Fitness Timer on the Mac App Store</span>
+ <span>Version 2 · Mac App Store</span>
  <div class="platform__thumbs" aria-hidden="true">
  <img src="./assets/screens/mac/01-start.png" alt="" width="160" height="120" loading="lazy" />
  <img src="./assets/screens/mac/05-work-note.png" alt="" width="160" height="120" loading="lazy" />
@@ -89,15 +102,37 @@
  </div>
  <span class="platform__hint">View screenshots</span>
  </button>
+ </div>
+ </div>
+ <div class="section__block">
+ <h2 class="section__title">Version 1</h2>
+ <p class="section__lead">
+ The iPhone app, with Apple Watch, is still version&nbsp;1. Android and Windows
+ are not available yet. It is a clear interval timer for any workout you time
+ yourself.
+ </p>
+ <ul class="feature-list">
+ <li>Set the number of rounds and exercises, then fill in the lesson.</li>
+ <li>Name the lesson. For each exercise set the name, the duration, a note, and the pause that follows it.</li>
+ <li>Apply one exercise time, or one pause, to the whole lesson. The app shows the exercise count and the total time, pauses included.</li>
+ <li>Change the number of rounds again while you edit the lesson.</li>
+ <li>During the workout the screen shows the countdown, the round, the exercise name, and your note. Rest shows the next exercise.</li>
+ <li>A sound marks the last seconds of an interval.</li>
+ <li>Pause, resume, or reset the timer. Full screen keeps the countdown large, in portrait or landscape.</li>
+ <li>Save lessons on the phone and open them again. Load a lesson from a file. No account.</li>
+ <li>Keep your own exercise database, with a name, a body part, and a note, and filter the list.</li>
+ <li>Apple Watch shows the same session: saved lessons, the countdown, work, and rest. Start, pause, and resume from the watch while the iPhone app is open.</li>
+ </ul>
+ <div class="platforms">
  <button
  class="platform"
  type="button"
  data-gallery="iphone"
- data-gallery-title="iPhone + Watch"
+ data-gallery-title="iPhone + Watch · version 1"
  aria-haspopup="dialog"
  >
  <strong>iPhone + Watch</strong>
- <span>Phone setup, watch mirror &amp; remote</span>
+ <span>Version 1</span>
  <div class="platform__thumbs" aria-hidden="true">
  <img src="./assets/screens/iphone/01-page-1.png" alt="" width="160" height="120" loading="lazy" />
  <img src="./assets/screens/iphone/06-p-fs-training.png" alt="" width="160" height="120" loading="lazy" />
@@ -105,13 +140,6 @@
  </div>
  <span class="platform__hint">View screenshots</span>
  </button>
- <div class="platform">
- <strong>Android</strong>
- <span>Phone and tablet classes</span>
- </div>
- <div class="platform">
- <strong>Windows</strong>
- <span>Web / PWA for Windows rooms</span>
  </div>
  </div>
  </div>

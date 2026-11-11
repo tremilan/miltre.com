@@ -711,7 +711,25 @@ a:hover {
 .section__lead {
   margin: 0 0 1.5rem;
   color: var(--muted);
-  max-width: 40rem;
+  max-width: 42rem;
+}
+
+.section__lead + .feature-list {
+  margin-top: -0.75rem;
+}
+
+.feature-list {
+  margin: 0 0 1.5rem;
+  padding-left: 1.15rem;
+  max-width: 42rem;
+}
+
+.feature-list li + li {
+  margin-top: 0.4rem;
+}
+
+.section__block + .section__block {
+  margin-top: 2.75rem;
 }
 
 .platforms {
