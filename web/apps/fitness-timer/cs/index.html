@@ -6,7 +6,7 @@
  <title>Fitness Timer by Miltre</title>
  <meta
  name="description"
- content="Fitness Timer, jednoduchý intervalový timer pro instruktory. Mac, iPhone, Apple Watch, Android a Windows."
+ content="Fitness Timer, 9&nbsp;přednastavených tréninků a&nbsp;vlastní lekce. Přehledný časovač, nastavení od&nbsp;barev po&nbsp;zvuk a&nbsp;vlastní databáze cviků."
  />
  <link rel="icon" href="../assets/icon-512.png" type="image/png" />
  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -14,7 +14,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="../../../styles.css?v=7" />
+ <link rel="stylesheet" href="../../../styles.css?v=8" />
  </head>
  <body>
  <header class="site-header">
@@ -49,8 +49,8 @@
  <div>
  <h1 class="hero__brand">Fitness Timer</h1>
  <p class="hero__lead">
- Jednoduchý režim pro instruktory. Sestavte kola, uložte lekce a spusťte
- přehledné střídání cviku a pauzy na obrazovce, která se hodí do vaší hodiny.
+ 9&nbsp;přednastavených tréninků a&nbsp;ty, které si sestavíte sami. Přehledný
+ časovač, nastavení od&nbsp;barev po&nbsp;zvuk a&nbsp;vlastní databáze cviků.
  </p>
  <div class="hero__actions">
  <a class="btn btn--primary" href="./support.html">Podpora</a>
@@ -67,12 +67,10 @@
  <div class="wrap">
  <h2 class="section__title">Jeden produkt, všechny platformy</h2>
  <p class="section__lead">
- Stejný timer pro instruktory na Macu, iPhonu s Apple Watch, Androidu
- i&nbsp;Windows.
- <span
- >Pro obchody používejte veřejné HTTPS odkazy na&nbsp;soukromí a&nbsp;podporu
- na&nbsp;miltre.com.</span
- >
+ Stejný timer pro instruktory na&nbsp;Macu, iPhonu s&nbsp;Apple Watch, Androidu
+ i&nbsp;Windows. Aplikace pro Mac je
+ <a href="https://apps.apple.com/app/id6809208948">Miltre Fitness Timer</a>
+ v&nbsp;Mac App Store.
  </p>
  <div class="platforms">
  <button
@@ -83,11 +81,11 @@
  aria-haspopup="dialog"
  >
  <strong>Mac</strong>
- <span>Desktop pro sálové monitory</span>
+ <span>Miltre Fitness Timer v&nbsp;Mac App Store</span>
  <div class="platform__thumbs" aria-hidden="true">
- <img src="../assets/screens/mac/01.png" alt="" width="160" height="120" loading="lazy" />
- <img src="../assets/screens/mac/02-saved-lessons.png" alt="" width="160" height="120" loading="lazy" />
- <img src="../assets/screens/mac/06-working.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="../assets/screens/mac/01-start.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="../assets/screens/mac/03-work.png" alt="" width="160" height="120" loading="lazy" />
+ <img src="../assets/screens/mac/07-compound-lesson.png" alt="" width="160" height="120" loading="lazy" />
  </div>
  <span class="platform__hint">Zobrazit snímky obrazovky</span>
  </button>
@@ -173,17 +171,31 @@
 
  const gallerySets = {
  mac: [
- "../assets/screens/mac/01.png",
- "../assets/screens/mac/02-saved-lessons.png",
- "../assets/screens/mac/03-fs-saved-lessons.png",
- "../assets/screens/mac/04-training-details.png",
- "../assets/screens/mac/05-fs-training-details.png",
- "../assets/screens/mac/06-working.png",
- "../assets/screens/mac/07-fs-working.png",
- "../assets/screens/mac/08-fs-pause.png",
- "../assets/screens/mac/09-pause.png",
- "../assets/screens/mac/10-fs-exercise-datab.png",
- "../assets/screens/mac/11-fs-exercise-datab-filters.png",
+ "../assets/screens/mac/01-start.png",
+ "../assets/screens/mac/02-get-ready.png",
+ "../assets/screens/mac/03-work.png",
+ "../assets/screens/mac/04-pause.png",
+ "../assets/screens/mac/05-training-details.png",
+ "../assets/screens/mac/06-training-details-top.png",
+ "../assets/screens/mac/07-compound-lesson.png",
+ "../assets/screens/mac/08-save-lesson.png",
+ "../assets/screens/mac/09-series-details.png",
+ "../assets/screens/mac/10-series-exercises.png",
+ "../assets/screens/mac/11-exercise-picker.png",
+ "../assets/screens/mac/12-exercise-picker-more.png",
+ "../assets/screens/mac/13-saved-lessons.png",
+ "../assets/screens/mac/14-load-from-file.png",
+ "../assets/screens/mac/15-exercise-database.png",
+ "../assets/screens/mac/16-database-filter-body.png",
+ "../assets/screens/mac/17-database-filter-note.png",
+ "../assets/screens/mac/18-database-filter-name.png",
+ "../assets/screens/mac/19-settings.png",
+ "../assets/screens/mac/20-color-picker.png",
+ "../assets/screens/mac/21-voice.png",
+ "../assets/screens/mac/22-languages.png",
+ "../assets/screens/mac/23-arabic.png",
+ "../assets/screens/mac/24-spanish.png",
+ "../assets/screens/mac/25-chinese.png",
  ],
  iphone: [
  "../assets/screens/iphone/01-page-1.png",
